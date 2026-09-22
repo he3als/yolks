@@ -45,6 +45,7 @@ RUN         test "$(dpkg --print-architecture)" = amd64 \
 				./intel-igc-opencl_1.0.17537.24_amd64.deb \
 				./intel-opencl-icd-legacy1_24.35.30872.36_amd64.deb \
 				./libigdgmm12_22.5.0_amd64.deb \
+			&& ln -s libOpenCL.so.1 /usr/lib/x86_64-linux-gnu/libOpenCL.so \
 			&& rm -rf /tmp/intel-opencl /var/lib/apt/lists/* /var/cache/apt/archives/*
 
 ## Setup working directory and environment

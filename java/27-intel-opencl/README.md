@@ -29,6 +29,8 @@ by Debian 13. No Ubuntu repository or host driver is installed.
 Debian supplies `ocl-icd-libopencl1` and `clinfo`. The extra OpenCL installation
 uses `--no-install-recommends`; it does not add Level Zero, Vulkan, VAAPI or
 desktop packages. Downloads and apt metadata are removed after installation.
+An unversioned `libOpenCL.so` link points to the loader's `libOpenCL.so.1` so
+LWJGL can resolve its initial library request without logging a fallback error.
 Intel assets are pinned; the base image and Debian packages follow the existing
 yolk's update policy.
 
@@ -56,8 +58,9 @@ The `build java intel opencl` workflow builds and verifies this image before
 publishing it. It runs for relevant pushes to `main`, weekly, or manually via
 `workflow_dispatch`. Existing Java workflows and their architectures are
 unchanged. Verification checks Java 27, `clinfo`, the pinned package versions,
-the ICD registration and shared-library dependencies. It does not require a GPU
-or fail merely because zero OpenCL platforms are found.
+loading `libOpenCL.so` by name through the system linker, the ICD registration
+and shared-library dependencies. It does not require a GPU or fail merely
+because zero OpenCL platforms are found.
 
 ## Test on the OpenWrt server
 
