@@ -210,6 +210,8 @@ is tagged correctly.
   * `ghcr.io/ptero-eggs/yolks:java_25`
 * [`java27`](/java/27)
   * `ghcr.io/ptero-eggs/yolks:java_27`
+* [`java27 Intel OpenCL`](/java/27-intel-opencl) (AMD64 only, Intel Gen8/Gen9/Gen11)
+  * `ghcr.io/he3als/yolks:java_27-intel-opencl`
 
 ### [MariaDB](/mariadb)
 
